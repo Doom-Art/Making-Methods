@@ -37,17 +37,147 @@ namespace Making_Methods
         /// <returns> The rise (y1-y2) of two provided y coordinates. </returns>
         public static double GetRise(double y1, double y2)
         {
-            return y1- y2;
+            return y2- y1;
         }
         ///<summary>
         ///This method returns the rise (y2-y1) of two coordinates provided.
         ///</summary>
-        ///<param name="p1"> A Point value representing the first coordinate.</param>
-        ///<param name="p2"> A Point value representing the second coordinate.</param>
+        ///<param name="p1"> A Point value representing the first y coordinate.</param>
+        ///<param name="p2"> A Point value representing the second y coordinate.</param>
         ///<returns>A double value representing the rise (y2-y1) of two coordinates provided.</returns>
         public static double GetRise(Point p1, Point p2)
         {
-            return GetRise(p1.Y, p2.Y); //lets use the method we know works to calculate the slope.
+            return GetRise(p1.Y, p2.Y); 
         }
+        /// <summary>
+        /// This method returns the run (x2-x1) of two coordinate values provided.
+        /// </summary>
+        /// <param name="x1"> A double value representing the first X coordinate. </param>
+        /// <param name="x2"> A double value representing the second X coordinate. </param>
+        /// <returns> A double value representing the run (x2-x1) of two coordinates provided. </returns>
+        public static double GetRun(double x1, double x2)
+        {
+            return x2- x1;
+        }
+        /// <summary>
+        /// This method returns the run (x2-x1) of two provided coordinates
+        /// </summary>
+        /// <param name="p1"> A Point value representing the first coordinate. </param>
+        /// <param name="p2"> A Point value representing the second coordinate. </param>
+        /// <returns> The run (x2 - x1) of the provided points. </returns>
+        public static double GetRun(Point p1, Point p2)
+        {
+            return GetRun(p1.X, p2.X);
+        }
+        /// <summary>
+        /// Gives the distance between two points on a graph when given the X and Y coordinate values.
+        /// </summary>
+        /// <param name="x1"> A double value representing the first point's X coordinate. </param>
+        /// <param name="x2"> A double value representing the second point's X coordinate. </param>
+        /// <param name="y1"> A double value representing the first point's Y coordinate. </param>
+        /// <param name="y2"> A double value representing the second point's Y coordinate. </param>
+        /// <returns> The distance [d=√((x2 – x1)² + (y2 – y1)²)] between 2 points. </returns>
+        public static double GetDistance(double x1,  double y1, double x2, double y2)
+        {
+            return GetHypotenuse( (GetRise(y1, y2)), GetRun(x1,x2));
+        }
+        /// <summary>
+        /// Gives the distance between two points on a graph with two provided points.
+        /// </summary>
+        /// <param name="p1"> The first point you want to compare. </param>
+        /// <param name="p2"> The second point you want to compare. </param>
+        /// <returns> The distance between the two points. </returns>
+        public static double GetDistance(Point p1, Point p2)
+        {
+            return GetDistance(p1.X, p2.X, p1.Y, p2.Y);
+        }
+        /// <summary>
+        /// Determines the slope when given values for the x and y coordinates of 2 points.
+        /// </summary>
+        /// <param name="x1"> A double value for the first point's X coordinate. </param>
+        /// <param name="y1"> A double value for the first point's Y coordinate. </param>
+        /// <param name="x2"> A double value for the second point's X coordinate. </param>
+        /// <param name="y2"> A double value for the second point's Y coordinate. </param>
+        /// <returns> A double value representing the slope (Rise/Run).</returns>
+        public static double GetSlope(double x1, double y1, double x2, double y2)
+        {
+            return (GetRise(y1, y2)) / (GetRun(x1, x2));
+        }
+        /// <summary>
+        /// Determines the slope when given two points.
+        /// </summary>
+        /// <param name="p1"> The first point you want to compare. </param>
+        /// <param name="p2"> The second point you want to compare. </param>
+        /// <returns> The slope (Rise/Run) of the two points. </returns>
+        public static double GetSlope(Point p1, Point p2)
+        {
+            return GetSlope(p1.X, p1.Y, p2.X, p2.Y);
+        }
+        /// <summary>
+        /// Determines the Y intercept with the slope and values for the X and Y coordinates.
+        /// </summary>
+        /// <param name="slope"> The slope of a graph </param>
+        /// <param name="x1"> A double value representing a point's X coordinate. </param>
+        /// <param name="y1"> A double value representing a point's Y coordinate. </param>
+        /// <returns> The Y intercept. </returns>
+        public static double GetYIntercept (double slope, double x1, double y1)
+        {
+            return (y1-(slope*x1));
+        }
+        /// <summary>
+        /// Determines the Y intercept when given the slope and one point.
+        /// </summary>
+        /// <param name="slope"> The slope value. </param>
+        /// <param name="p1"> One point on the graph. </param>
+        /// <returns> The Y intercept as a double value. </returns>
+        public static double GetYIntercept(double slope, Point p1)
+        {
+            return GetYIntercept(slope, p1.X, p1.Y);
+        }
+        /// <summary>
+        /// Determines if a triangle is a right triangle when given the three legs.
+        /// </summary>
+        /// <param name="leg1"> A double value representing the first leg of a triangle. </param>
+        /// <param name="leg2"> A double value representing the second leg of a triangle. </param>
+        /// <param name="leg3"> A double value representing the third leg of a triangle. </param>
+        /// <returns> Returns true if it is a right triangle or false if it is not. </returns>
+        public static bool IsRightTriangle(double leg1, double leg2, double leg3)
+        {
+            if (leg1 == GetHypotenuse(leg2, leg3)){
+                return true;
+            }
+            else if( leg2 == GetHypotenuse(leg1, leg3)){
+                return true;
+            }
+            else if (leg3 == GetHypotenuse(leg1, leg2)){
+                return true;
+            }
+            else
+                return false;
+        }
+        /// <summary>
+        /// Generates a list of integers with random integer values in the range of the entered min and max values.
+        /// </summary>
+        /// <param name="min"> An int value for the minimum value. </param>
+        /// <param name="max"> An int value for the maximum value. If max is less than min it is defaulted to min+1 </param>
+        /// <param name="size"> An int value for the size of the list, if negative it will be set to a default of 0. </param>
+        /// <returns> A list of random integers in the range of the entered min and max values. </int></returns>
+        public static List<int> GetRandomList(int min, int max, int size)
+        {
+            Random rand = new Random();
+            if (size < 0){
+                size = 0;
+            }
+            if (max < min){
+                max = min + 1;
+            }
+            List<int> list = new List<int>();
+            for (int i = 0; i < size; )
+            {
+                list.Add(rand.Next(min,max));
+            }
+            return list;
+        }
+
     }
 }
