@@ -172,12 +172,127 @@ namespace Making_Methods
                 max = min + 1;
             }
             List<int> list = new List<int>();
-            for (int i = 0; i < size; )
+            for (int i = 0; i < size; i++)
             {
                 list.Add(rand.Next(min,max));
             }
             return list;
         }
-
+        /// <summary>
+        /// Generates an array of integers with random integer values in the range of the entered min and max values.
+        /// </summary>
+        /// <param name="min"> An int value for the minimum value. </param>
+        /// <param name="max"> An int value for the maximum value. If max is less than min it is defaulted to min+1 </param>
+        /// <param name="size"> An int value for the size of the array, if negative it will be set to a default of 0. </param>
+        /// <returns> An array of random integers in the range of the entered min and max values. </int></returns>
+        public static int[] GetRandomArray(int min, int max, int size)
+        {
+            Random rand = new Random();
+            if (size < 0)
+            {
+                size = 0;
+            }
+            if (max < min)
+            {
+                max = min + 1;
+            }
+            int[] list = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                list[i] = rand.Next(min, max);
+            }
+            return list;
+        }
+        /// <summary>
+        /// Takes a string and prints it returns it in the reversed order.
+        /// </summary>
+        /// <param name="stringToReverse"> A string value that will be returned in the reverse order. </param>
+        /// <returns> The string in a reversed order. </returns>
+        public static string Reverse(string stringToReverse)
+        {
+            string reversedVersion = "";
+            for (int i = (stringToReverse.Length) - 1; i>=0; i--)
+            {
+                reversedVersion += stringToReverse[i];
+            }
+            return reversedVersion;
+        }
+        /// <summary>
+        /// Determines the average value of the double values in a list of doubles.
+        /// </summary>
+        /// <param name="list"> A List of doubles to get the average values of. </param>
+        /// <returns> The average value of the doubles in the list. </returns>
+        public static double Average(List<double> list)
+        {
+            int count = 0;
+            double average = 0;
+            foreach(double d in list)
+            {
+                average += d;
+                count++;
+            }
+            return (average / count);
+        }
+        /// <summary>
+        /// Determines the average value of the double values in an array of doubles.
+        /// </summary>
+        /// <param name="array"> An array of doubles to get the average values of. </param>
+        /// <returns> The average of value of the doubles in the array. </returns>
+        public static double Average(double[] array)
+        {
+            List<double> list = new List<double>();
+            foreach(double i in array)
+            {
+                list.Add(i);
+            }
+            return Average(list);
+        }
+        /// <summary>
+        /// Determines the average value of the int values in a list of ints.
+        /// </summary>
+        /// <param name="list"> A List of ints to get the average values of. </param>
+        /// <returns> The average value of the ints in the list. </returns>
+        public static double Average(List<int> list)
+        {
+            int count = 0;
+            double average = 0;
+            foreach (int d in list)
+            {
+                average += d;
+                count++;
+            }
+            return (average / count);
+        }
+        /// <summary>
+        /// Determines the average value of the int values in an array of ints.
+        /// </summary>
+        /// <param name="array"> An array of integers to get the average value of. </param>
+        /// <returns> The average of value of the integers  in the array. </returns>
+        public static double Average(int[] array)
+        {
+            List<int> list = new List<int>();
+            foreach (int i in array)
+            {
+                list.Add(i);
+            }
+            return Average(list);
+        }
+        /// <summary>
+        /// Determines the number of real roots using the quadratic formula.
+        /// </summary>
+        /// <param name="a"> The A value of an equation in standard form. </param>
+        /// <param name="b"> The B value of an equation in standard form. </param>
+        /// <param name="c"> The C value of an equation in standard form.</param>
+        /// <returns> Returns the number of real roots the equation has. </returns>
+        public static int RootChecker(double a, double b, double c)
+        {
+            double d = (b * b) - (4 * a * c);
+            if (d == 0)
+                return 1;
+            else if (d > 0)
+                return 2;
+            else
+                return 0;
+        }
     }
 }
