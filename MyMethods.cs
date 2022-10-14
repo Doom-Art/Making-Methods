@@ -294,5 +294,15 @@ namespace Making_Methods
             else
                 return 0;
         }
+        /// <summary>
+        /// Finds the circumfrence of a circle when given the radius
+        /// </summary>
+        /// <param name="radius"> The radius of the circle you want to find the circumfrence of. </param>
+        /// <returns> The circumfrence of the circle. </returns>
+        public static double CircumfrenceFinder(double radius)
+        {
+            return 2 * Math.PI * radius;
+        }
+
     }
 }
