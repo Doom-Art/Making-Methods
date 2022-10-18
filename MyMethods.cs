@@ -303,6 +303,65 @@ namespace Making_Methods
         {
             return 2 * Math.PI * radius;
         }
-
+        /// <summary>
+        /// Calculates the area of a triangle.
+        /// </summary>
+        /// <param name="height"> A double value representing the height of the triangle. </param>
+        /// <param name="base1"> A double value representing the base of the triangle. </param>
+        /// <returns> The area of a triangle [(Height*base)/2]. </returns>
+        public static double AreaOfTriangle(double height, double base1)
+        {
+            return (height * base1) / 2;
+        }
+        /// <summary>
+        /// Draws a dice face corrosponding to the number given.
+        /// </summary>
+        /// <param name="dice">An int value between 1-6 representing the die face you want printed. </param>
+        public static void DiceDrawing(int dice)
+        {
+            int y = Console.CursorTop; int x = Console.CursorLeft;
+            if (dice == 1){
+                Console.SetCursorPosition(x, y + 1); Console.Write("_____");
+                Console.SetCursorPosition(x, y + 2); Console.Write("|   |");
+                Console.SetCursorPosition(x, y + 3); Console.Write("| o |");
+                Console.SetCursorPosition(x, y + 4); Console.Write("|   |");
+                Console.SetCursorPosition(x, y + 5); Console.Write("-----");
+            }
+            else if (dice == 2){
+                Console.SetCursorPosition(x, y + 1); Console.Write("_____");
+                Console.SetCursorPosition(x, y + 2); Console.Write("|o  |");
+                Console.SetCursorPosition(x, y + 3); Console.Write("|   |");
+                Console.SetCursorPosition(x, y + 4); Console.Write("|  o|");
+                Console.SetCursorPosition(x, y + 5); Console.Write("-----");
+            }
+            else if (dice == 3){
+                Console.SetCursorPosition(x, y + 1); Console.Write("_____");
+                Console.SetCursorPosition(x, y + 2); Console.Write("|o  |");
+                Console.SetCursorPosition(x, y + 3); Console.Write("| o |");
+                Console.SetCursorPosition(x, y + 4); Console.Write("|  o|");
+                Console.SetCursorPosition(x, y + 5); Console.Write("-----");
+            }
+            else if (dice == 4){
+                Console.SetCursorPosition(x, y + 1); Console.Write("_____");
+                Console.SetCursorPosition(x, y + 2); Console.Write("|o o|");
+                Console.SetCursorPosition(x, y + 3); Console.Write("|   |");
+                Console.SetCursorPosition(x, y + 4); Console.Write("|o o|");
+                Console.SetCursorPosition(x, y + 5); Console.Write("-----");
+            }
+            else if (dice == 5){
+                Console.SetCursorPosition(x, y + 1); Console.Write("_____");
+                Console.SetCursorPosition(x, y + 2); Console.Write("|o o|");
+                Console.SetCursorPosition(x, y + 3); Console.Write("| o |");
+                Console.SetCursorPosition(x, y + 4); Console.Write("|o o|");
+                Console.SetCursorPosition(x, y + 5); Console.Write("-----");
+            }
+            else if (dice == 6){
+                Console.SetCursorPosition(x, y + 1); Console.Write("_____");
+                Console.SetCursorPosition(x, y + 2); Console.Write("|o o|");
+                Console.SetCursorPosition(x, y + 3); Console.Write("|o o|");
+                Console.SetCursorPosition(x, y + 4); Console.Write("|o o|");
+                Console.SetCursorPosition(x, y + 5); Console.Write("-----");
+            }
+        }
     }
 }
